@@ -1,7 +1,7 @@
 import codecs
 import types
 
-from training.fileprep.codecs.word_codec import WordCodec
+from training.dataprep.codecs.word_codec import WordCodec
 
 class TextCodec(codecs.Codec):
     """

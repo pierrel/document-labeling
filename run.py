@@ -1,4 +1,4 @@
-from training.fileprep.airbnb_example import AirbnbExample
+from training.dataprep.airbnb_example import AirbnbExample
 import numpy
 import itertools
 

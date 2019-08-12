@@ -1,6 +1,6 @@
 import unittest
 
-from training.fileprep.codecs.word_codec import WordCodec
+from training.dataprep.codecs.word_codec import WordCodec
 
 class TestWordCodec(unittest.TestCase):
     def test_initial_encoding(self):

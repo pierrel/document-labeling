@@ -1,9 +1,9 @@
 import codecs
 import csv
 import numpy
-from training.fileprep.data_source import DataSource
-from training.fileprep.codecs.word_codec import WordCodec
-from training.fileprep.codecs.text_codec import TextCodec
+from training.dataprep.data_source import DataSource
+from training.dataprep.codecs.word_codec import WordCodec
+from training.dataprep.codecs.text_codec import TextCodec
 
 
 class AirbnbExample(DataSource):

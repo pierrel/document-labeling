@@ -1,6 +1,6 @@
 import unittest
 
-from training.fileprep.codecs.text_codec import TextCodec
+from training.dataprep.codecs.text_codec import TextCodec
 
 class TestTextCodec(unittest.TestCase):
     def test_padding(self):
