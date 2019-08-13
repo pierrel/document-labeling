@@ -3,7 +3,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import tensorflow as tf
 from tensorflow import keras
 
-class DocLabellingModel:
+class DocLabelingModel:
     """
     Creates a keras model specifically for labelling
     """
@@ -15,3 +15,8 @@ class DocLabellingModel:
             keras.layers.Dense(16, activation=tf.nn.relu),
             keras.layers.Dense(labels, activation=tf.nn.sigmoid)
         ])
+        self.model.compile(
+            optimizer='adam',
+            loss='binary_crossentropy',
+            metrics=['acc']
+        )

@@ -1,8 +1,31 @@
-from training.dataprep.airbnb_example import AirbnbExample
 import numpy
 import itertools
 
-example = AirbnbExample(file_path="/Users/pierrelarochelle/Desktop/Categories_csv.csv")
+from training.dataprep.airbnb_example import AirbnbExample
+from training.trainer import Trainer
+from training.model import DocLabelingModel
 
-print([i for i in itertools.islice(example.texts(), 0, 3)])
-print([i for i in itertools.islice(example.labels(), 0, 100)])
+example = AirbnbExample(file_path="/Users/pierrelarochelle/Desktop/Categories_csv.csv")
+texts = numpy.array([i for i in example.texts()])
+labels = numpy.array([i for i in example.labels()])
+
+eval_train_index = len(texts)-50
+
+train_texts = texts[:eval_train_index]
+eval_texts = texts[eval_train_index:]
+train_labels = labels[:eval_train_index]
+eval_labels = labels[eval_train_index:]
+
+model = DocLabelingModel(len(labels[0]))
+trainer = Trainer(model.model)
+
+model = trainer.train(train_texts, train_labels)
+print(trainer.evaluate(eval_texts, eval_labels))
+
+# simple experiment
+predictions = model.predict(eval_texts)
+results = [(example.read_prediction(i), example.read_prediction(j)) for (i, j) in zip(predictions, eval_labels)]
+for result in results:
+    print(result, "\n")
+
+

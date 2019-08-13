@@ -44,3 +44,9 @@ class AirbnbExample(DataSource):
             reader = csv.reader(csv_file)
             for (text, label) in reader:
                 yield (text, label)
+
+    def read_prediction(self, single_prediction: numpy.ndarray):
+        max_val = single_prediction.max()
+        max_index = numpy.argmax(single_prediction)
+
+        return (self.labelCodec.decode(max_index), max_val)
