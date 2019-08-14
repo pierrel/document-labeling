@@ -5,7 +5,7 @@ from training.dataprep.airbnb_example import AirbnbExample
 from training.trainer import Trainer
 from training.model import DocLabelingModel
 
-example = AirbnbExample(file_path="/Users/pierrelarochelle/Desktop/Categories_csv.csv")
+example = AirbnbExample(file_path="/path/to/file.csv")
 texts = numpy.array([i for i in example.texts()])
 labels = numpy.array([i for i in example.labels()])
 
